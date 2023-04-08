@@ -78,6 +78,7 @@ router.post("/create_mockdata", function (req, res) {
   db.run(add_new_package);
   db.run(add_new_creditcard);
   db.run(add_new_bill);
+  res.json("Create mock data successful!");
 });
 
 router.get("/get/:table", function (req, res) {
