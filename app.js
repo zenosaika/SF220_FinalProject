@@ -65,8 +65,8 @@ db.serialize(function () {
   let create_bill_table = `
   CREATE TABLE IF NOT EXISTS bill (
     bill_id INTEGER PRIMARY KEY,
-    start_date TEXT NOT NULL,
-    end_date TEXT NOT NULL,
+    start_timestamp TEXT NOT NULL,
+    end_timestamp TEXT NOT NULL,
     package_id INTEGER NOT NULL,
     user_id INTEGER NOT NULL,
     creditcard_id INTEGER NOT NULL,

@@ -36,8 +36,8 @@ router.post("/create_mockdata", function (req, res) {
   let add_new_message = `
     INSERT INTO message (timestamp, body, sender_user_id, receiver_user_id)
     VALUES
-    ("1680958708", "hello, world!", 0, 0),
-    ("1680958769", "supporter to user", 1, 0)
+    ("1680958708", "hello, world!", 1, 1),
+    ("1680958769", "supporter to user", 2, 1)
   `;
 
   let add_new_video = `
@@ -59,17 +59,17 @@ router.post("/create_mockdata", function (req, res) {
   let add_new_creditcard = `
     INSERT INTO creditcard (card_number, expiration_month, expiration_year, security_code, user_id)
     VALUES
-    ("15473685234", "08", "29", "420", 0),
-    ("24623456336", "12", "27", "030", 0),
-    ("42364646231", "03", "25", "635", 2)
+    ("15473685234", "08", "29", "420", 1),
+    ("24623456336", "12", "27", "030", 1),
+    ("42364646231", "03", "25", "635", 3)
   `;
 
   let add_new_bill = `
-    INSERT INTO bill (start_date, end_date, package_id, user_id, creditcard_id)
+    INSERT INTO bill (start_timestamp, end_timestamp, package_id, user_id, creditcard_id)
     VALUES
-    ("20230101", "20230201", 0, 0, 1),
-    ("20230201", "20230301", 1, 0, 0),
-    ("20230218", "20230318", 2, 2, 2)
+    ("1680951233", "1680955677", 1, 1, 2),
+    ("1680954324", "1680955676", 2, 1, 1),
+    ("1680953246", "1680956788", 3, 3, 3)
   `;
 
   db.run(add_new_user);
@@ -82,12 +82,41 @@ router.post("/create_mockdata", function (req, res) {
 });
 
 router.get("/get/:table", function (req, res) {
-  let get_all_table = `SELECT * FROM ${req.params.table}`;
+  let get_table = `SELECT * FROM ${req.params.table}`;
 
-  db.all(get_all_table, (err, rows) => {
+  db.all(get_table, (err, rows) => {
     if (err) {
       return res.json({ status: "Failed" });
     }
     return res.json({ status: "Success", data: rows });
   });
+});
+
+router.post("/create_message/:n", function (req, res) {
+  let n = parseInt(req.params.n);
+  for (let i = 0; i < n; i++) {
+    let rand = Math.random();
+    let min = 1679698470;
+    let max = 1681106266;
+    let timestamp = min + Math.floor((max - min) * rand);
+    let add_new_message = `INSERT INTO message (timestamp, body, sender_user_id, receiver_user_id)
+    VALUES (${timestamp}, "hello, world! no.${i}", 1, 1)`;
+    db.run(add_new_message);
+  }
+  res.json("Create mock message successful!");
+});
+
+router.post("/create_bill/:n", function (req, res) {
+  let n = parseInt(req.params.n);
+  for (let i = 0; i < n; i++) {
+    let rand = Math.random();
+    let min = 1649545067;
+    let max = 1681106267;
+    let timestamp = min + Math.floor((max - min) * rand);
+    // let choice = [1, 2, 3][Math.floor(rand * 3)];
+    let add_new_message = `INSERT INTO bill (start_timestamp, end_timestamp, package_id, user_id, creditcard_id)
+    VALUES (${timestamp}, ${timestamp}, 3, 1, 2)`;
+    db.run(add_new_message);
+  }
+  res.json("Create mock bill successful!");
 });
