@@ -1,0 +1,34 @@
+{
+  "options": {
+    "chart": {
+      "foreColor": "#ccc",
+      "width": 380,
+      "type": "donut"
+    },
+    "plotOptions": {
+      "pie": {
+        "startAngle": -90,
+        "endAngle": 270
+      }
+    },
+    "dataLabels": {
+      "enabled": false
+    },
+    "fill": {
+      "type": "gradient"
+    },
+    "responsive": [
+      {
+        "breakpoint": 480,
+        "options": {
+          "chart": {
+            "width": 200
+          },
+          "legend": {
+            "position": "bottom"
+          }
+        }
+      }
+    ]
+  }
+}

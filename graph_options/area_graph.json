@@ -1,0 +1,75 @@
+{
+  "options": {
+    "chart": {
+      "type": "area",
+      "background": "#fff",
+      "stacked": true,
+      "offsetY": 39,
+      "offsetX": -100,
+      "zoom": {
+        "enabled": false
+      }
+    },
+    "plotOptions": {
+      "line": {
+        "dataLabels": {
+          "enabled": false
+        }
+      }
+    },
+    "stroke": {
+      "curve": "straight"
+    },
+    "colors": ["#3F51B5", "#2196F3"],
+    "fill": {
+      "type": "gradient",
+      "gradient": {
+        "inverseColors": false,
+        "shade": "light",
+        "type": "vertical",
+        "opacityFrom": 0.9,
+        "opacityTo": 0.6,
+        "stops": [0, 100, 100, 100]
+      }
+    },
+    "title": {
+      "text": "Visitor Insights",
+      "align": "left",
+      "offsetY": -5,
+      "offsetX": 20
+    },
+    "subtitle": {
+      "text": "Adwords Statistics",
+      "offsetY": 30,
+      "offsetX": 20
+    },
+    "markers": {
+      "size": 0,
+      "style": "hollow",
+      "strokeWidth": 8,
+      "strokeColor": "#fff",
+      "strokeOpacity": 0.25
+    },
+    "grid": {
+      "show": false,
+      "padding": {
+        "left": 0,
+        "right": 0
+      }
+    },
+    "yaxis": {
+      "show": false
+    },
+    "xaxis": {
+      "labels": {
+        "rotate": -45,
+        "rotateAlways": true
+      }
+    },
+    "legend": {
+      "offsetY": -50,
+      "position": "top",
+      "horizontalAlign": "right"
+    }
+  }
+}

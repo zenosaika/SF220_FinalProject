@@ -1,0 +1,21 @@
+{
+  "options": {
+    "chart": {
+      "foreColor": "#ccc",
+      "height": 350,
+      "type": "heatmap"
+    },
+    "dataLabels": {
+      "enabled": false
+    },
+    "xaxis": {
+      "labels": {
+        "show": false
+      }
+    },
+    "colors": ["#008FFB"],
+    "title": {
+      "text": "HeatMap Chart (Single color)"
+    }
+  }
+}

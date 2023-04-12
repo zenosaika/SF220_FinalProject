@@ -1,0 +1,65 @@
+{
+  "options": {
+    "chart": {
+      "height": 328,
+      "type": "line",
+      "foreColor": "#ccc",
+      "toolbar": {
+        "show": true,
+        "tools": {
+          "download": false,
+          "selection": true,
+          "zoom": true,
+          "zoomin": true,
+          "zoomout": true,
+          "pan": true
+        }
+      },
+      "dropShadow": {
+        "enabled": true,
+        "top": 3,
+        "left": 2,
+        "blur": 4,
+        "opacity": 1
+      }
+    },
+    "stroke": {
+      "curve": "smooth",
+      "width": 2
+    },
+    "title": {
+      "text": "Media",
+      "align": "left",
+      "offsetY": 25,
+      "offsetX": 20
+    },
+    "subtitle": {
+      "text": "Statistics",
+      "offsetY": 55,
+      "offsetX": 20
+    },
+    "markers": {
+      "size": 6,
+      "strokeWidth": 0,
+      "hover": {
+        "size": 9
+      }
+    },
+    "grid": {
+      "show": true,
+      "padding": {
+        "bottom": 0
+      }
+    },
+    "xaxis": {
+      "tooltip": {
+        "enabled": false
+      }
+    },
+    "legend": {
+      "position": "top",
+      "horizontalAlign": "right",
+      "offsetY": -20
+    }
+  }
+}
