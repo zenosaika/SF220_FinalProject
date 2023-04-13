@@ -106,8 +106,9 @@ router.post("/create_message/:n", function (req, res) {
   res.json("Create mock message successful!");
 });
 
-router.post("/create_bill/:n", function (req, res) {
+router.post("/create_bill/:n/:package", function (req, res) {
   let n = parseInt(req.params.n);
+  let package = parseInt(req.params.package);
   for (let i = 0; i < n; i++) {
     let rand = Math.random();
     let min = 1649545067;
@@ -115,8 +116,21 @@ router.post("/create_bill/:n", function (req, res) {
     let timestamp = min + Math.floor((max - min) * rand);
     // let choice = [1, 2, 3][Math.floor(rand * 3)];
     let add_new_message = `INSERT INTO bill (start_timestamp, end_timestamp, package_id, user_id, creditcard_id)
-    VALUES (${timestamp}, ${timestamp}, 3, 1, 2)`;
+    VALUES (${timestamp}, ${timestamp}, ${package}, 1, 2)`;
     db.run(add_new_message);
   }
   res.json("Create mock bill successful!");
+});
+
+router.post("/create_user/:n/:role", function (req, res) {
+  let n = parseInt(req.params.n);
+  let role = parseInt(req.params.role);
+  for (let i = 0; i < n; i++) {
+    let unique = Math.random() * 100000000000;
+    let add_new_user = `
+      INSERT INTO user (firstname, lastname, username, email, password, role)
+      VALUES ("minerva", "despair", "${unique}", "${unique}@despair.mail", "p@ssword", ${role})`;
+    db.run(add_new_user);
+  }
+  res.json("Create mock user successful!");
 });

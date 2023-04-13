@@ -11,7 +11,12 @@ db.serialize(function () {
     email TEXT NOT NULL UNIQUE,
     password TEXT NOT NULL,
     role INTEGER DEFAULT 3,
-    is_auto_renewal INTEGER DEFAULT 0
+    package_id INTEGER,
+    is_auto_renewal INTEGER DEFAULT 0,
+    FOREIGN KEY (package_id)
+      REFERENCES package(package_id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
   )`;
 
   let create_message_table = `
